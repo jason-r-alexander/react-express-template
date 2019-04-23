@@ -1,0 +1,44 @@
+{
+  "name": "react-express-template",
+  "version": "1.0.0",
+  "description": "Boilerplate for React and Express",
+  "main": "server.js",
+  "scripts": {
+    "dev-start": "node server",
+    "server": "nodemon server/server",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "build-client": "cd client && npm run build",
+    "clean-assets": "rm -rf ./public/*",
+    "copy-assets": "mkdir -p ./public && cp -R ./client/build/* ./public",
+    "compile-server": "rm -rf ./dist && babel server --out-dir dist",
+    "pre-deploy": "npm run compile-server && npm run build-client && npm run clean-assets && npm run copy-assets",
+    "start": "node ./dist/server"
+  },
+  "author": "Jason Alexander",
+  "license": "MIT",
+  "dependencies": {
+    "@material-ui/core": "^3.9.3",
+    "concurrently": "^4.1.0",
+    "dotenv": "^7.0.0",
+    "express": "^4.16.4",
+    "path": "^0.12.7",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-redux": "^7.0.2",
+    "react-router-dom": "^5.0.0",
+    "react-scripts": "^3.0.0",
+    "redux": "^4.0.1",
+    "redux-thunk": "^2.3.0",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.4"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.4.3",
+    "@babel/core": "^7.4.3",
+    "@babel/preset-env": "^7.4.3",
+    "nodemon": "^1.18.11"
+  },
+  "proxy": "http://localhost:5000"
+}

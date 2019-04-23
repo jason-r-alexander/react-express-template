@@ -1,0 +1,75 @@
+Arguments: 
+  /usr/local/Cellar/node/11.14.0_1/bin/node /usr/local/Cellar/yarn/1.15.2/libexec/bin/yarn.js pre-deploy
+
+PATH: 
+  /Users/jasonalexander/Desktop/JMJCloud - Projects/Google Cloud/google-cloud-sdk/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/jasonalexander/Desktop/JMJCloud - Projects/Google Cloud/google-cloud-sdk/bin
+
+Yarn version: 
+  1.15.2
+
+Node version: 
+  11.14.0
+
+Platform: 
+  darwin x64
+
+Trace: 
+  SyntaxError: /Users/jasonalexander/Desktop/JMJCloud - Projects/React Apps/create-react-app/react-express-template/package.json: Unexpected token / in JSON at position 871
+      at JSON.parse (<anonymous>)
+      at /usr/local/Cellar/yarn/1.15.2/libexec/lib/cli.js:1625:59
+      at Generator.next (<anonymous>)
+      at step (/usr/local/Cellar/yarn/1.15.2/libexec/lib/cli.js:304:30)
+      at /usr/local/Cellar/yarn/1.15.2/libexec/lib/cli.js:315:13
+
+npm manifest: 
+  {
+    "name": "react-express-template",
+    "version": "1.0.0",
+    "description": "Boilerplate for React and Express",
+    "main": "server.js",
+    "scripts": {
+      "dev-start": "node server",
+      "server": "nodemon server",
+      "client": "npm start --prefix client",
+      "dev": "concurrently \"npm run server\" \"npm run client\"",
+      "build-client": "cd client && npm run build",
+      "clean-assets": "rm -rf ./public/*",
+      "copy-assets": "mkdir -p ./public && cp -R ./client/build/* ./public",
+      "compile-server": "rm -rf ./dist && babel server --out-dir dist",
+      "pre-deploy": "npm run compile-server && npm run build-client && npm run clean-assets && npm run copy-assets",
+      "start": "node ./dist/index"
+    },
+    "author": "Jason Alexander",
+    "license": "MIT",
+    "dependencies": {
+      "concurrently": "^4.1.0",
+      "express": "^4.16.4"
+    },
+    "devDependencies": {
+      //"@babel/cli": "^7.4.3",
+      //"@babel/core": "^7.4.3",
+      //"@babel/preset-env": "^7.4.3",
+      "babel": "^6.23.0",
+      "babel-cli": "^6.23.0",
+      "babel-core": "^6.23.1",
+      "babel-eslint": "^7.1.1",
+      "babel-istanbul": "^0.12.2",
+      "babel-plugin-syntax-async-functions": "^6.13.0",
+      "babel-plugin-transform-builtin-extend": "^1.1.2",
+      "babel-plugin-transform-class-properties": "^6.23.0",
+      "babel-plugin-transform-object-rest-spread": "^6.23.0",
+      "babel-plugin-transform-regenerator": "^6.22.0",
+      "babel-plugin-transform-runtime": "^6.23.0",
+      "babel-preset-es2015": "^6.22.0",
+      "babel-preset-stage-0": "^6.22.0",
+      "babel-resolver": "^1.1.0",
+      "nodemon": "^1.18.11"
+    },
+    "proxy": "http://localhost:5000"
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
